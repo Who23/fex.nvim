@@ -117,7 +117,7 @@ end
 local function executeAndParse(ctx, path, parser)
     -- Invoke ls command and parse and render the result line by line
     -- The D option enables special dired output that is needed to avoid parsing filenames
-    local lsCmd = "ls -D " .. ctx.options.ls .. " " .. path
+    local lsCmd = "ls -D " .. ctx.options.ls .. " '" .. path .. "'"
     local h = io.popen(lsCmd)
     while parseLine(ctx, path, parser, h:read("*line")) do
     end
